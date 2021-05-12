@@ -8,6 +8,10 @@
     <artifactId>ridko-sdk-notify</artifactId>
     <version>1.0</version>
 
+    <name>RIDKO Notify SDK for Java</name>
+    <description>The RIDKO Notify SDK for Java used for accessing RIDKO Notify Service</description>
+    <url>https://github.com/qaqRose/ridko-notify-sdk</url>
+
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
