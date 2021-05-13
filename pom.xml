@@ -119,4 +119,28 @@
         </plugins>
     </build>
 
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/qaqRose/ridko-notify-sdk</url>
+        <connection>https://github.com/qaqRose/ridko-notify-sdk.git</connection>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>qaqRose</name>
+            <email>767917432@qq.com</email>
+            <url>https://github.com/qaqRose</url>
+        </developer>
+    </developers>
+
+
+
+
 </project>
