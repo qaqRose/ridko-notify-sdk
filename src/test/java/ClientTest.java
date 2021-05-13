@@ -1,7 +1,11 @@
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.Method;
+import com.ridkorfid.notify.client.Client;
+import com.ridkorfid.notify.client.ClientBuilder;
+import com.ridkorfid.notify.client.config.Configuration;
 import com.ridkorfid.notify.client.utils.Notify;
 import com.ridkorfid.notify.client.utils.SleepUtil;
+import org.junit.Test;
 
 import java.net.InetSocketAddress;
 import java.net.Proxy;
@@ -41,5 +45,20 @@ public class ClientTest {
         String result = httpRequest.setProxy(proxy).execute().body();
 
         System.out.println(result);
+    }
+
+    @Test
+    public void setEndPoint() {
+
+        Configuration configuration = new Configuration();
+        configuration.setEndPoint("http://127.0.0.1:7099/notice/post");
+
+        Client build = ClientBuilder.build(configuration);
+        Notify.setClient(build);
+        Notify.logInfo("kasdfhkjadfhkjshf");
+        Notify.logDebug("kasdfhkjadfhkjshf");
+        Notify.logError("kasdfhkjadfhkjshf");
+
+        SleepUtil.sleep(10);
     }
 }

@@ -22,6 +22,10 @@ public class ClientBuilder {
         return new NotifyClient(getCredentialsProvider() , new Configuration());
     }
 
+    public static Client build(Configuration configuration) {
+        return new NotifyClient(getCredentialsProvider() , configuration);
+    }
+
     public static Client build(String accessId, String secretKey) {
         return new NotifyClient(getCredentialsProvider(accessId, secretKey), new Configuration());
     }

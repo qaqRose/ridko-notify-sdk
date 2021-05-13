@@ -37,13 +37,12 @@ public class Configuration {
     /**
      * 请求地址
      */
-    private final String endPoint = "http://message.ridkorfid.com/notice/post";
+    private String endPoint = "https://message.ridkorfid.com/notice/post";
 
     /**
      * 最大阻塞任务队列长度
      */
     private int maxBlockingTaskNum = 10000;
-
 
     public int getMaxBlockingTaskNum() {
         return maxBlockingTaskNum;
@@ -91,5 +90,13 @@ public class Configuration {
 
     public void setDefaultHeaders(Map<String, String> defaultHeaders) {
         this.defaultHeaders = defaultHeaders;
+    }
+
+    /**
+     * 测试使用
+     * @param endPoint
+     */
+    public void setEndPoint(String endPoint) {
+        this.endPoint = endPoint;
     }
 }
