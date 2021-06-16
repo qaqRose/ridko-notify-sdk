@@ -9,6 +9,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.ridkorfid.notify.client.exception.HttpPostException;
 import com.ridkorfid.notify.client.request.RequestMessage;
 
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.util.Map;
 
 /**

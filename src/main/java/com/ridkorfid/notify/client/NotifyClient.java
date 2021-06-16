@@ -61,9 +61,8 @@ public class NotifyClient implements Client {
         _push(notifyType, simpleNotice);
     }
 
-    @Override
-    public void log(LogLevel logLevel, String message) {
-        LogNotice notice = new LogNotice(logLevel, message);
+    private void log(LogLevel logLevel, String message, String packageName) {
+        LogNotice notice = new LogNotice(logLevel, message, packageName);
         _push(Singleton.get(LogType.class), notice);
     }
 
@@ -98,18 +97,18 @@ public class NotifyClient implements Client {
     }
 
     @Override
-    public void debug(String message) {
-        log(LogLevel.DEBUG, message);
+    public void debug(String message, String packageName) {
+        log(LogLevel.DEBUG, message, packageName);
     }
 
     @Override
-    public void info(String message) {
-        log(LogLevel.INFO, message);
+    public void info(String message, String packageName) {
+        log(LogLevel.INFO, message, packageName);
     }
 
     @Override
-    public void error(String message) {
-        log(LogLevel.ERROR, message);
+    public void error(String message, String packageName) {
+        log(LogLevel.ERROR, message, packageName);
     }
 
     @Override

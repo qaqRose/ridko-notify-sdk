@@ -1,5 +1,6 @@
 package com.ridkorfid.notify.client.partal;
 
+import cn.hutool.core.date.DateUtil;
 import com.ridkorfid.notify.client.common.log.LogLevel;
 
 /**
@@ -12,10 +13,13 @@ public class LogNotice extends AbstractNotice {
 
     private LogLevel logLevel;
 
-    public LogNotice(LogLevel logLevel, String content) {
+    private String packageName;
+
+    public LogNotice(LogLevel logLevel, String content, String packageName) {
         super();
         this.logLevel = logLevel;
         this.content = content;
+        this.packageName = packageName;
     }
 
     public String getContent() {
@@ -32,5 +36,13 @@ public class LogNotice extends AbstractNotice {
 
     public void setLogLevel(LogLevel logLevel) {
         this.logLevel = logLevel;
+    }
+
+    public String getPackageName() {
+        return packageName;
+    }
+
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
     }
 }

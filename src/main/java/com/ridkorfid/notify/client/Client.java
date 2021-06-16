@@ -27,27 +27,22 @@ public interface Client {
     void push(Throwable throwable);
 
     /**
-     * 发送日志日志
-     */
-    void log(LogLevel logLevel, String message);
-
-    /**
      * debug日志
      * @param message
      */
-    void debug(String message);
+    void debug(String message, String packageName);
 
     /**
      * info日志
      * @param message
      */
-    void info(String message);
+    void info(String message, String packageName);
 
     /**
      * 错误日志
      * @param message
      */
-    void error(String message);
+    void error(String message, String packageName);
 
     /**
      * 获取配置

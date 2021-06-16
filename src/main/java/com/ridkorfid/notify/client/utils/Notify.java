@@ -1,5 +1,8 @@
 package com.ridkorfid.notify.client.utils;
 
+import cn.hutool.core.lang.caller.Caller;
+import cn.hutool.core.lang.caller.CallerUtil;
+import cn.hutool.core.lang.caller.SecurityManagerCaller;
 import com.ridkorfid.notify.client.Client;
 import com.ridkorfid.notify.client.ClientBuilder;
 import com.ridkorfid.notify.client.thread.TaskThread;
@@ -47,7 +50,8 @@ public class Notify {
         if(!INSTANCE.secureCheck()) {
             return ;
         }
-        client.debug(message);
+        Class<?> caller = CallerUtil.getCaller(2);
+        client.debug(message, caller.getPackage().getName());
     }
 
     /**
@@ -58,7 +62,8 @@ public class Notify {
         if(!INSTANCE.secureCheck()) {
             return ;
         }
-        client.info(message);
+        Class<?> caller = CallerUtil.getCaller(2);
+        client.info(message, caller.getPackage().getName());
     }
 
     /**
@@ -69,7 +74,8 @@ public class Notify {
         if(!INSTANCE.secureCheck()) {
             return ;
         }
-        client.error(message);
+        Class<?> caller = CallerUtil.getCaller(2);
+        client.error(message, caller.getPackage().getName());
     }
 
 
