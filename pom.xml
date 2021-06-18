@@ -6,7 +6,7 @@
 
     <groupId>com.ridkorfid</groupId>
     <artifactId>ridko-sdk-notify</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1</version>
 
     <name>Ridko Notify SDK for Java</name>
     <description>The Ridko Notify SDK for Java used for accessing Ridko Notify Service</description>
