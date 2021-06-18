@@ -2,6 +2,7 @@ package com.ridkorfid.notify.client.config;
 
 import com.ridkorfid.notify.client.utils.VersionInfoUtils;
 
+import java.net.Proxy;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -38,6 +39,11 @@ public class Configuration {
      * 请求地址
      */
     private String endPoint = "https://message.ridkorfid.com/notice/post";
+
+    /**
+     * 代理配置
+     */
+    private Proxy proxy;
 
     /**
      * 最大阻塞任务队列长度
@@ -98,5 +104,13 @@ public class Configuration {
      */
     public void setEndPoint(String endPoint) {
         this.endPoint = endPoint;
+    }
+
+    public Proxy getProxy() {
+        return proxy;
+    }
+
+    public void setProxy(Proxy proxy) {
+        this.proxy = proxy;
     }
 }

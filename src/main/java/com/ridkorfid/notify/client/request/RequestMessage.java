@@ -1,6 +1,7 @@
 package com.ridkorfid.notify.client.request;
 
 
+import java.net.Proxy;
 import java.net.URI;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -20,6 +21,7 @@ public class RequestMessage extends HttpMessage {
 
     private Map<String, String> parameters = new LinkedHashMap<String, String>();
 
+    private Proxy proxy = null;
 
     public HttpMethod getHttpMethod() {
         return httpMethod;
@@ -54,5 +56,13 @@ public class RequestMessage extends HttpMessage {
 
     public void removeParameter(String key) {
         this.parameters.remove(key);
+    }
+
+    public Proxy getProxy() {
+        return proxy;
+    }
+
+    public void setProxy(Proxy proxy) {
+        this.proxy = proxy;
     }
 }

@@ -74,6 +74,7 @@ public class NotifyClient implements Client {
     private void _push(NotifyType notifyType, Notice notice) {
         RequestMessage requestMessage = new RequestMessage();
         requestMessage.setServerUri(URI.create(config.getEndPoint()));
+        requestMessage.setProxy(config.getProxy());
         requestMessage.setContent(notice);
         String s = Signer.buildSignature(credentialsProvider.getCredentials().getSecretKey(), notifyType.getType(), config.getVersion());
         requestMessage.addHeader(NotifyHeader.AUTHORIZATION, composeRequestAuthorization(s));

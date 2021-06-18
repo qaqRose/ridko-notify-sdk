@@ -48,13 +48,15 @@ public abstract class AbstractTask extends AbstractTimeTask {
     private void _run(RequestMessage requestMessage) {
         Map<String, String> headers = requestMessage.getHeaders();
 
-        // test 本地代理
-//        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 8888));
+        HttpRequest request = new HttpRequest(requestMessage.getServerUri().toString());
+        // 代理
+        if(requestMessage.getProxy() != null) {
+            request.setProxy(requestMessage.getProxy());
+        }
 
-        String result = HttpRequest.post(requestMessage.getServerUri().toString())
+        String result = request
                 .headerMap(headers, false)
                 .body(JSON.toJSONString(requestMessage.getContent()))
-//                .setProxy(proxy)
                 .timeout(30 * 1000)
                 .execute()
                 .body();
