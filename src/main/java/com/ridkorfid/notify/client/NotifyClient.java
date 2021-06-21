@@ -19,6 +19,8 @@ import com.ridkorfid.notify.client.task.NoticeTask;
 import com.ridkorfid.notify.client.task.TaskQueue;
 import com.ridkorfid.notify.client.utils.OsUtil;
 import com.ridkorfid.notify.client.utils.Signer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.URI;
 
@@ -27,6 +29,8 @@ import java.net.URI;
  * @date 2021/1/8
  */
 public class NotifyClient implements Client {
+
+    private static Logger logger = LoggerFactory.getLogger(NotifyClient.class);
 
     private Configuration config;
     private CredentialsProvider credentialsProvider;

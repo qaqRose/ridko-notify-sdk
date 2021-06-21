@@ -2,6 +2,8 @@ package com.ridkorfid.notify.client;
 
 import com.ridkorfid.notify.client.auth.*;
 import com.ridkorfid.notify.client.config.Configuration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author qiu
@@ -11,6 +13,7 @@ import com.ridkorfid.notify.client.config.Configuration;
  */
 public class ClientBuilder {
 
+    private static Logger logger = LoggerFactory.getLogger(ClientBuilder.class);
     /**
      * 无参构建
      * 智能查找配置凭证： 循序 环境变量 -> 启动参数 -> 配置文件
@@ -53,16 +56,19 @@ public class ClientBuilder {
         //
         credentialsProvider = new EnvironmentVariableCredentialsProvider();
         if(testCredentialsProvider(credentialsProvider)) {
+            logger.debug("通过环境变量配置秘钥");
             return credentialsProvider;
         }
 
         credentialsProvider = new SystemPropertiesCredentialsProvider();
         if(testCredentialsProvider(credentialsProvider)) {
+            logger.debug("通过系统属性配置秘钥");
             return credentialsProvider;
         }
 
         credentialsProvider = new ProfileCredentialsProvider();
         if(testCredentialsProvider(credentialsProvider)) {
+            logger.debug("通过配置文件配置秘钥");
             return credentialsProvider;
         }
 
@@ -70,6 +76,11 @@ public class ClientBuilder {
 
     }
 
+    /**
+     * 测试凭证提供者
+     * @param credentialsProvider
+     * @return
+     */
     private static boolean testCredentialsProvider(CredentialsProvider credentialsProvider) {
         try {
             Credentials credentials = credentialsProvider.getCredentials();

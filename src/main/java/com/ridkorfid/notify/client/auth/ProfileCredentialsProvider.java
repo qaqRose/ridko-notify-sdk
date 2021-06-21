@@ -48,7 +48,8 @@ public class ProfileCredentialsProvider implements CredentialsProvider {
         String profileName1 = null;
         if (profileName == null) {
             for (String s : AuthUtils.DEFAULT_PROFILE_PATH) {
-                if (FileUtil.isFile(s)) {
+                String absolutePath = FileUtil.getAbsolutePath(s);
+                if (FileUtil.isFile(absolutePath) && FileUtil.exist(absolutePath)) {
                     profileName1 = s;
                     break;
                 }
